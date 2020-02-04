@@ -1,0 +1,144 @@
+body{
+  background-color: #F7F7FC;
+}
+  h1{
+    margin: 0;
+  }
+  .hero{
+    background-image: url('/images/hero-2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 280px;
+    margin-top: 80px;
+    padding-bottom: 87px;
+  }
+  .hero .container h1{
+    font-weight: bold;
+    font-size: 54px;
+    color: #232D79;
+  }
+  .hero .container h1 span{
+    font-weight: 400;
+    color: #232D79;
+  }
+  .hero .container p{
+    font-weight: 400;
+    font-size: 24px;
+    color: #FF9000;
+    margin-top: 18px;
+    line-height: 38px;
+  }
+  .hero .container a{
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+    max-width: 660px;
+    padding: 13px 60px 13px 60px;
+    border-radius: 50px;
+  }
+
+.about-contain .container .row .abc-right p{
+  font-size: 18px;
+  color: #364155;
+  line-height: 38px;
+  padding-top: 76px;
+}
+.about-contain{
+  padding-bottom: 220px;
+}
+
+.visi{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 178px;
+}
+.visi .container .card-visi{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #EFEFF8;
+  border-radius: 24px;
+}
+.visi .container .card-visi .decor-visi{
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  background-image: url('/images/decor.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 44px;
+}
+.visi .container .card-visi h5{
+  font-size: 42px;
+  color: #1A2749;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+.visi .container .card-visi p{
+  font-size: 20px;
+  color: #909AAD;
+  font-weight: normal;
+  text-align: center;
+  line-height: 38px;
+  margin-bottom: 32px;
+}
+.visi .container .card-visi h5 span{
+  font-weight: normal;
+}
+.visi .container .card-visi h6{
+  font-size: 38px;
+  color: #1A2749;
+  font-style: italic;
+  max-width: 90%;
+  text-align: center;
+  margin-bottom: 86px;
+  line-height: 57px;
+}
+
+.misi{
+  margin-bottom: 300px;
+}
+
+.card-misi{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.card-misi .wrapper-misi{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 30px 30px;
+}
+.card-misi .wrapper-misi .icon-misi{
+  padding-right: 24px;
+}
+.card-misi .wrapper-misi .title-misi p{
+  margin-bottom: 0;
+  font-size: 20px;
+  line-height: 38px;
+  color: #1A2749;
+}
+
+.col-right-misi h6{
+  font-size: 42px;
+  color: #232D79;
+  font-weight: normal;
+  line-height: 63px;
+}
+.col-right-misi h5{
+  font-size: 42px;
+  color: #232D79;
+  font-weight: bold;
+  line-height: 63px;
+}
+.col-right-misi p{
+  font-size: 20px;
+  color: #909AAD;
+  font-weight: normal;
+  line-height: 38px;
+}

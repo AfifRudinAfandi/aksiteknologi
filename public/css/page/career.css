@@ -1,0 +1,148 @@
+body{
+    background-color: #F7F7FC;
+  }
+      .ctp-career{
+        padding-top: 140px;
+      }
+
+      h1{
+        font-size: 48px;
+        color: #232D79;
+        line-height: 72px;
+        font-weight: bold;
+      }
+      h1 span{
+        font-weight: normal;
+      }
+
+      .ctp-pill{
+          margin-top: 70px;
+          padding-bottom: 240px;
+      }
+
+      .nav-tabs .nav-item {
+        margin: auto;
+    }
+    .nav-tabs{
+        margin-bottom: 38px;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #1A2749;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0);
+        border-bottom: 4px solid;
+        border-color: #FF9000;
+    }
+    .nav-tabs .nav-link {
+        color: #1A2749;
+        font-size: 20px;
+        font-weight: normal;
+        border: 0;
+        padding-left: 22px;
+        padding-right: 50px;
+        padding-bottom: 22px;
+        border-bottom: 4px solid;
+        border-color: #909AAD;
+    }
+    .job-menu{
+        background-color: #fff;
+        border-left: 6px solid;
+        border-radius: 6px;
+        border-color: #0C94D0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: -10px;
+        position: relative;
+        z-index: 2;
+        
+    }
+    .job-menu i{
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        border: 1px solid;
+        color: #909AAD;
+        border-color: #909AAD;
+        font-size: 14px;
+    }
+    .wrapper-job-menu .btn{
+        border-top: 0;
+        border-bottom: 0;
+        border-right: 0;
+        font-size: 20px;
+        line-height: 30px;
+        color: #000;
+        font-weight: normal;
+        padding-left: 34px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    .collapse-item .btm-collapse .btn{
+        color: #fff;
+        margin-top: 40px;
+    }
+    .wrapper-job-menu .btn:focus{
+        box-shadow: 0 0 0 0rem rgba(0,123,255,.25);
+    }
+    .collapse-item{
+        background-color: #fff;
+        border-radius: 6px;
+        border-left: 6px solid;
+        border-color: #0C94D0;
+        z-index: 1;
+    }
+    .collapse-item label{
+        font-size: 20px;
+        color: #909AAD;
+        line-height: 30px;
+        background-color: #F7F7FC;
+        margin-bottom: 0;
+        font-weight: normal;
+        width: 100%;
+        padding-left: 34px;
+        padding: 13px 0 13px 34px;
+        margin-bottom: 26px;
+        margin-top: 10px;
+    }
+    .collapse-item .ul-collapse{
+        padding-left: 34px;
+    }
+    .collapse-item .ul-collapse .basic-item{
+        margin-bottom: 20px;
+        display: flex;
+        font-size: 20px;
+        color: #1A2749;
+    }
+    .collapse-item .ul-collapse .basic-item i{
+        color: #10ADE2;
+        font-size: 22px;
+        margin-right: 18px;
+        margin-top: 3px;
+    }
+    .btm-collapse{
+        padding-left: 70px;
+        margin-top: 46px;
+        padding-bottom: 60px;
+    }
+    .collapse-item .btm-collapse p{
+        font-size: 20px;
+        line-height: 48px;
+        color: #1A2749;
+        margin-bottom: 0;
+    }
+    .collapse-item .btm-collapse h6{
+        font-size: 20px;
+        line-height: 48px;
+        color: #1A2749;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+  
+  
+  
+  
+  

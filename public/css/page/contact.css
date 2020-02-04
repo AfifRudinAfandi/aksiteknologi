@@ -1,0 +1,125 @@
+body{
+    background-color: #F7F7FC;
+  }
+
+      h1{
+        margin: 0;
+      }
+      .hero{
+        background-image: url('/images/hero-2.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 280px;
+        margin-top: 80px;
+        padding-bottom: 200px;
+      }
+      .hero .container h1{
+        font-weight: bold;
+        font-size: 48px;
+        color: #232D79;
+      }
+      .hero .container h1 span{
+        font-weight: 400;
+        color: #232D79;
+      }
+      .input-contact{
+        display: flex;
+        margin-bottom: -100px;
+        margin-top: -190px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+      }
+
+      .wrapper-input-contact{
+          background-color: #fff;
+          padding: 60px 56px;
+          border-radius: 12px;
+          max-width: 50%;
+      }
+      .wrapper-input-contact .form-group .form-control {
+        height: 64px;
+    }
+
+    .wrapper-input-contact form .form-group label{
+        color: #909AAD;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .wrapper-input-contact form .form-group{
+        margin-bottom: 32px;
+    }
+    .form-control:focus {
+        color: #ff9000;
+        background-color: #fff;
+        border-color: #ff9000;
+        outline: 0;
+        box-shadow: 0 0 0 0.02rem rgba(255, 144, 0, 0.55);
+    }
+    .form-control {
+        border-color: #909AAD;
+        color: #909AAD;
+        border-radius: 8px;
+        font-size: 20px;
+        padding-left: 23px;
+        border: 1px solid #909AAD;
+    }
+    .form-group .messages{
+        min-height: 100px;
+    }
+    .wrapper-input-contact form .form-group input::-webkit-input-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group input:focus::-webkit-input-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-contact form .form-group textarea::-webkit-input-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group textarea:focus::-webkit-input-placeholder {
+        color: #ff9000;
+    }
+    
+    /* Firefox < 19 */ 
+    .wrapper-input-contact form .form-group input:-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group input:focus:-moz-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-contact form .form-group textarea:-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group textarea:focus:-moz-placeholder {
+        color: #ff9000;
+    }
+    
+    /* Firefox > 19 */
+    .wrapper-input-contact form .form-group input::-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group input:focus::-moz-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-contact form .form-group textarea::-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-contact form .form-group textarea:focus::-moz-placeholder {
+        color: #ff9000;
+    }
+
+    .btn-submit{
+        float: right;
+    }
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,160 @@
+body{
+    background-color: #F7F7FC;
+  }
+      .ctp-career{
+        padding-top: 140px;
+      }
+
+      h1{
+        font-size: 48px;
+        color: #232D79;
+        line-height: 72px;
+        font-weight: bold;
+      }
+      h1 span{
+        font-weight: normal;
+      }
+
+      .ctp-pill{
+          margin-top: 70px;
+          padding-bottom: 240px;
+      }
+
+      .nav-tabs .nav-item {
+        margin: auto;
+    }
+    .nav-tabs{
+        margin-bottom: 38px;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #1A2749;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0);
+        border-bottom: 4px solid;
+        border-color: #FF9000;
+    }
+    .nav-tabs .nav-link {
+        color: #1A2749;
+        font-size: 20px;
+        font-weight: normal;
+        border: 0;
+        padding-left: 22px;
+        padding-right: 50px;
+        padding-bottom: 22px;
+        border-bottom: 4px solid;
+        border-color: #909AAD;
+    }
+  
+
+
+
+
+    .input-career{
+        display: flex;
+        margin-bottom: 150px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+      }
+
+      .wrapper-input-career{
+          background-color: #fff;
+          padding: 60px 56px;
+          border-radius: 8px;
+          border-left: 6px solid;
+          border-color: #0C94D0;
+      }
+      .col-form h6{
+          font-size: 20px;
+          font-weight: bold;
+          color: #1A2749;
+          line-height: 30px;
+          margin-bottom: 14px;
+      }
+      .col-form p{
+        color: #909AAD;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 38px;
+        background-color: #F7F7FC;
+        padding: 24px 24px 24px 24px;
+        margin-bottom: 32px;
+        min-height: 182px;
+        border-radius: 8px;
+
+      }
+      
+      .wrapper-input-career form .row .col-form .form-group .form-control {
+        height: 64px;
+    }
+
+    .wrapper-input-career form .row .col-form .form-group label{
+        color: #909AAD;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .wrapper-input-career form .row .col-form .form-group{
+        margin-bottom: 32px;
+    }
+    .form-control:focus {
+        color: #ff9000;
+        background-color: #fff;
+        border-color: #ff9000;
+        outline: 0;
+        box-shadow: 0 0 0 0.02rem rgba(255, 144, 0, 0.55);
+    }
+    .form-control {
+        border-color: #909AAD;
+        color: #909AAD;
+        border-radius: 8px;
+        font-size: 20px;
+        padding-left: 23px;
+        border: 1px solid #909AAD;
+    }
+    .form-group .messages{
+        min-height: 100px;
+    }
+    .wrapper-input-career form .form-group input::-webkit-input-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group input:focus::-webkit-input-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-career form .form-group textarea::-webkit-input-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group textarea:focus::-webkit-input-placeholder {
+        color: #ff9000;
+    }
+    
+    /* Firefox < 19 */ 
+    .wrapper-input-career form .form-group input:-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group input:focus:-moz-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-career form .form-group textarea:-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group textarea:focus:-moz-placeholder {
+        color: #ff9000;
+    }
+    
+    /* Firefox > 19 */
+    .wrapper-input-career form .form-group input::-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group input:focus::-moz-placeholder {
+        color: #ff9000;
+    }
+    .wrapper-input-career form .form-group textarea::-moz-placeholder {
+        color: #909AAD;
+    }
+    .wrapper-input-career form .form-group textarea:focus::-moz-placeholder {
+        color: #ff9000;
+    }
+
+    .btn-submit{
+        float: right;
+    }
