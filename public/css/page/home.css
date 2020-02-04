@@ -186,9 +186,10 @@ h1 {
 
 .our-servis {
     background: #FFFFFF;
-    padding-bottom: 4%;
     height: 47vh;
-    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title-servis {
@@ -228,9 +229,10 @@ h1 {
 
 .our-partner {
     background: #F0F0F5;
-    padding-bottom: 4%;
-    padding-top: 4%;
     height: 47vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title {
