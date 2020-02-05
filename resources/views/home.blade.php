@@ -54,7 +54,7 @@
     <div class="container wrapper-content">
         <h1>Actions</h1>
         <h1 class="line-two" style="color: #FF9000;"><span>for</span> the Future</h1>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <p>Let you have a dream,</br>Let us actualize your vision to become your future value</p>
         <a href="{{ route('app.contact') }}" class="btn btn-warning">{{ __('page.home.contact_us') }}</a>
     </div>
     <div class="line"></div>
