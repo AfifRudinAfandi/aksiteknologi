@@ -16,7 +16,9 @@
   z-index: 3;
   position: relative;
 }
-
+.row-team{
+    justify-content: center;
+}
     .commissioners{
         display: flex;
         flex-direction: column;
@@ -74,7 +76,7 @@
         line-height: 24px;
     }
     .cm-our-team .cm-title p{
-        font-size: 18px;
+        font-size: 16px;
         line-height: 32px;
         color: #364155;
         text-align: left;

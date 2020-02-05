@@ -10,7 +10,7 @@
     <h4>{!! __('page.team.director') !!}</h4>
     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. </p>
     <div class="container">
-        <div class="row">
+        <div class="row row-team">
             @foreach($directors as $director)
                 <div class="col-md-4 cm-our-team directors">
                     <div class="cm-profile">
