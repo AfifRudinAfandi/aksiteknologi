@@ -52,7 +52,7 @@
 @section('content')
 <section class="hero hero-home2">
     <div class="container wrapper-content">
-        <h1>Actions</h1>
+        <h1>Action</h1>
         <h1 class="line-two" style="color: #FF9000;"><span>for</span> the Future</h1>
         <p>Let you have a dream,</br>Let us actualize your vision to become your future value</p>
         <a href="{{ route('app.contact') }}" class="btn btn-warning">{{ __('page.home.contact_us') }}</a>
@@ -112,7 +112,7 @@
                                 <img src="{{ $ayo->getFirstMediaUrl('images') }}" alt="{{ $ayo->name }}">
                             </div>
                             <div class="title-product child-right">
-                                <h5>{!! str_replace(['AYO', 'SIAP'], ['<span>AYO</span>','<span>SIAP</span>'], $ayo->name) !!}</h5>
+                                <h5>{!! str_replace(['AYO', 'Sia'], ['<span>AYO</span>','<span>Sia</span>'], $ayo->name) !!}</h5>
                                 <p>{{ \Illuminate\Support\Str::limit(strip_tags($ayo->description), 40, $end='...') }}</p>
                             </div>
                         </div>

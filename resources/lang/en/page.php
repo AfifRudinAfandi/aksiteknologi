@@ -17,9 +17,9 @@ return array (
   'about' => 
   array (
     'about' => 'About',
-    'action' => 'Action For the Future',
+    'action' => 'Action for the Future',
     'vision' => '<span>Our</span> Vision',
-    'vision_caption' => 'To become a techbnology company that can realize dreams for the better future',
+    'vision_caption' => 'To become a technology company that can realize dreams for the better future',
     'mision' => '<h6>Our</h6><h5>Mision</h5>',
   ),
   'team' => 
