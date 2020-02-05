@@ -247,7 +247,7 @@ li {
 }
 
 .nav-right .input-group {
-    width: 42%;
+    width: 50%;
     margin-left: auto;
     margin-right: 20px;
 }
@@ -262,7 +262,10 @@ li {
 .nav-right .input-group .form-control:focus {
     box-shadow: unset;
 }
-
+.input-group-append {
+    position: absolute;
+    right: 0;
+}
 .input-group-append .btn-outline-secondary {
     color: #FF9000;
     border-color: #6c757d00;
