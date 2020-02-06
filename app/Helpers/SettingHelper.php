@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use App;
 use App\Models\Company;
 use App\Models\Setting;
 use App\Models\SocialLink;
@@ -61,11 +62,11 @@ class SettingHelper
     }
 
     public static function serviceDesc() {
-        return !empty(self::generalSettings()->site_service_desc) ? self::generalSettings()->site_service_desc : null;
+        return self::locale(self::generalSettings()->site_service_desc, self::generalSettings()->site_en_service_desc);
     }
 
     public static function partnerDesc() {
-        return !empty(self::generalSettings()->site_partner_desc) ? self::generalSettings()->site_partner_desc : null;
+        return self::locale(self::generalSettings()->site_partner_desc, self::generalSettings()->site_en_partner_desc);
     }
 
     public static function siteLang() {
@@ -89,11 +90,11 @@ class SettingHelper
     }
 
     public static function vision() {
-        return !empty(self::companyProfiles()->vision) ? self::companyProfiles()->vision : null;
+        return self::locale(self::companyProfiles()->vision, self::companyProfiles()->en_vision);
     }
 
     public static function about() {
-        return !empty(self::companyProfiles()->about_us) ? self::companyProfiles()->about_us : null;
+        return self::locale(self::companyProfiles()->about_us, self::companyProfiles()->en_about_us);
     }
 
     public static function map() {
@@ -106,6 +107,17 @@ class SettingHelper
 
     public static function email() {
         return !empty(self::companyProfiles()->email) ? self::companyProfiles()->email : null;
+    }
+
+    public static function locale($id, $en)
+    {
+        if(App::getLocale() == 'id'){
+            return $id;
+        }else if(App::getLocale() == 'en'){
+            return $en;
+        }else{
+            return null;
+        }
     }
 
 }

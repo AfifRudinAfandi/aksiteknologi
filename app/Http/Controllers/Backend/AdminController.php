@@ -211,9 +211,6 @@ class AdminController extends Controller
         $web->site_partner_desc = $request->site_partner_desc;
         $web->site_en_partner_desc = $request->site_en_partner_desc;
         $web->lang = $request->lang;
-        $web->playstore_link = $request->playstore_link;
-        $web->appstore_link = $request->appstore_link;
-        $web->web_link = $request->web_link;
         $web->analytic_view_id = $request->analytic_view_id;
         $web->ga_scripts = $request->ga_scripts;
 

@@ -28,7 +28,6 @@ class AddEnToTables extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->longText('en_about_us')->nullable();
             $table->longText('en_vision')->nullable();
-            $table->longText('en_mission')->nullable();
         });
 
     }
@@ -55,7 +54,6 @@ class AddEnToTables extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->dropColumn('en_about_us');
             $table->dropColumn('en_vision');
-            $table->dropColumn('en_mission');
         });
 
     }

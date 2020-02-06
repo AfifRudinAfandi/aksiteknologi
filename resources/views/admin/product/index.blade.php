@@ -77,7 +77,22 @@ main-wrapper-2
                     </div>
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea name="description" class="form-control" style="height: 80px;"></textarea>
+                        <ul class="nav nav-pills" id="productTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="id-tab" data-toggle="tab" href="#cid" role="tab" aria-controls="id" aria-selected="true">ID</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="true">EN</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="productTabContent">
+                            <div class="tab-pane fade show active" id="cid" role="id" aria-labelledby="id-tab">
+                                <textarea name="description" class="form-control" style="height: 80px;"></textarea>
+                            </div>
+                            <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                                <textarea name="en_description" class="form-control" style="height: 80px;"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -99,6 +114,18 @@ main-wrapper-2
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="playstore_link">Playstore Link</label>
+                        <input type="text" name="playstore_link" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="appstore_link">Appstore Link</label>
+                        <input type="text" name="appstore_link" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="web_link">Web Link</label>
+                        <input type="text" name="web_link" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Logo</label>
@@ -148,7 +175,22 @@ main-wrapper-2
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea name="description" id="description" class="form-control" style="height: 80px;"></textarea>
+                            <ul class="nav nav-pills" id="productEditTab" role="tablist">
+                                <li class="nav-item">
+                                  <a class="nav-link active" id="edit-id-tab" data-toggle="tab" href="#edit-id" role="tab" aria-controls="edit-id" aria-selected="true">ID</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" id="edit-en-tab" data-toggle="tab" href="#edit-en" role="tab" aria-controls="edit-en" aria-selected="true">EN</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="productEditTabContent">
+                                <div class="tab-pane fade show active" id="edit-id" role="edit-id" aria-labelledby="edit-id-tab">
+                                    <textarea id="description" name="description" class="form-control" style="height: 80px;"></textarea>
+                                </div>
+                                <div class="tab-pane fade" id="edit-en" role="tabpanel" aria-labelledby="edit-en-tab">
+                                    <textarea id="en-description" name="en_description" class="form-control" style="height: 80px;"></textarea>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -171,6 +213,18 @@ main-wrapper-2
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="playstore_link">Playstore Link</label>
+                            <input type="text" id="playstore-link" name="playstore_link" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="appstore_link">Appstore Link</label>
+                            <input type="text" id="appstore-link" name="appstore_link" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="web_link">Web Link</label>
+                            <input type="text" id="web-link" name="web_link" class="form-control">
+                        </div>    
                         <div class="form-group">
                             <label>Logo (biarkan kosong jika tidak ingin mengganti logo.)</label>
                             <div id="edit-image-preview" class="image-preview" style="width: 180px;">
@@ -254,7 +308,7 @@ main-wrapper-2
             processing: true,
             serverSide: true,
             order: [
-                [5, "asc"]
+                [5, "desc"]
             ],
             ajax: '{{ route('admin.product.datatable') }}',
             columns: [{
@@ -315,6 +369,10 @@ main-wrapper-2
                         $('#id').val(result.id);
                         $('#name').val(result.name);
                         $('#description').val(result.description);
+                        $('#en-description').val(result.en_description);
+                        $('#playstore-link').val(result.playstore_link);
+                        $('#appstore-link').val(result.appstore_link);
+                        $('#web-link').val(result.web_link);
                         $('#type').val(result.type);
                         $('#is_displayed').val(result.is_displayed);
                         $('#edit-spinner').hide();
