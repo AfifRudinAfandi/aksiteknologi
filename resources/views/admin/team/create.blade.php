@@ -4,6 +4,14 @@
 main-wrapper-1
 @endsection
 
+@push('styles')
+    <style>
+        textarea.bio {
+            height: 100px !important;
+        }
+    </style>
+@endpush
+
 @section('content_header')
 <div class="section-header">
     <div class="section-header-back">
@@ -71,7 +79,22 @@ main-wrapper-1
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Bio</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea name="bio" class="form-control"></textarea>
+                                <ul class="nav nav-pills" id="bioTab" role="tablist">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" id="id-tab" data-toggle="tab" href="#id" role="tab" aria-controls="id" aria-selected="true">ID</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="true">EN</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="bioTabContent">
+                                    <div class="tab-pane fade show active" id="id" role="id" aria-labelledby="id-tab">
+                                        <textarea name="bio" class="form-control bio"></textarea>
+                                    </div>
+                                    <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                                        <textarea name="en_bio" class="form-control bio"></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row mb-4">

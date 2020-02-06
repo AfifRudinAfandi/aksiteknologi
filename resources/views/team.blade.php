@@ -19,7 +19,7 @@
                     <div class="cm-title">
                         <h5>{{ $director->name }}</h5>
                         <h6>{{ isset($director->division) ? $director->division->name : '' }}</h6>
-                        <p>{{ $director->bio }}</p>
+                        <p>{{ SettingHelper::locale($director->bio, $director->en_bio) }}</p>
                     </div>
                 </div>
             @endforeach

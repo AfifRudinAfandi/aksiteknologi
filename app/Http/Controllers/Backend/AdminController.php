@@ -129,9 +129,11 @@ class AdminController extends Controller
         $company->company_name = $request->company_name;
         $company->address = $request->address;
         $company->about_us = $request->about_us;
+        $company->en_about_us = $request->en_about_us;
         $company->email = $request->email;
         $company->phone = $request->phone;
         $company->vision = $request->vision;
+        $company->en_vision = $request->en_vision;
         $company->map = $request->map;
 
         $company->save();
@@ -207,7 +209,9 @@ class AdminController extends Controller
         $web->profile_id = ProfileHelper::getId();
         $web->site_title = $request->site_title;
         $web->site_service_desc = $request->site_service_desc;
+        $web->site_en_service_desc = $request->site_en_service_desc;
         $web->site_partner_desc = $request->site_partner_desc;
+        $web->site_en_partner_desc = $request->site_en_partner_desc;
         $web->lang = $request->lang;
         $web->analytic_view_id = $request->analytic_view_id;
         $web->ga_scripts = $request->ga_scripts;

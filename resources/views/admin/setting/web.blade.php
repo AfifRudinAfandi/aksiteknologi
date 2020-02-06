@@ -15,16 +15,46 @@
                         <input type="text" name="site_title" value="{{ !empty($web->site_title) ? $web->site_title : '' }}" class="form-control">
                     </div>
                 </div>
-                <div class="form-group row align-items-center">
-                    <label for="site_partner_des" class="form-control-label col-sm-3">Deskripsi Service</label>
+                <div class="form-group row">
+                    <label for="site_partner_des" class="form-control-label col-sm-3" style="margin-top: 10px;">Deskripsi Service</label>
                     <div class="col-sm-6 col-md-9">
-                        <textarea name="site_service_desc" class="form-control">{{ !empty($web->site_service_desc) ? $web->site_service_desc : '' }}</textarea>
+                        <ul class="nav nav-pills" id="serviceTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="id-tab" data-toggle="tab" href="#id" role="tab" aria-controls="id" aria-selected="true">ID</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="true">EN</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="serviceTabContent">
+                            <div class="tab-pane fade show active" id="id" role="id" aria-labelledby="id-tab">
+                                <textarea name="site_service_desc" class="form-control">{{ !empty($web->site_service_desc) ? $web->site_service_desc : '' }}</textarea>
+                            </div>
+                            <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                                <textarea name="site_en_service_desc" class="form-control">{{ !empty($web->site_en_service_desc) ? $web->site_en_service_desc : '' }}</textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row align-items-center">
-                    <label for="site_partner_desc" class="form-control-label col-sm-3">Deskripsi Partner</label>
+                <div class="form-group row">
+                    <label for="site_partner_desc" class="form-control-label col-sm-3" style="margin-top: 10px;">Deskripsi Partner</label>
                     <div class="col-sm-6 col-md-9">
-                        <textarea name="site_partner_desc" class="form-control">{{ !empty($web->site_partner_desc) ? $web->site_partner_desc : '' }}</textarea>
+                        <ul class="nav nav-pills" id="partnerTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="partner-id-tab" data-toggle="tab" href="#partner-id" role="tab" aria-controls="partner-id" aria-selected="true">ID</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="partner-en-tab" data-toggle="tab" href="#partner-en" role="tab" aria-controls="partner-en" aria-selected="true">EN</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="partnerTabContent">
+                            <div class="tab-pane fade show active" id="partner-id" role="partner-id" aria-labelledby="partner-id-tab">
+                                <textarea name="site_partner_desc" class="form-control">{{ !empty($web->site_partner_desc) ? $web->site_partner_desc : '' }}</textarea>
+                            </div>
+                            <div class="tab-pane fade" id="partner-en" role="tabpanel" aria-labelledby="partner-en-tab">
+                                <textarea name="site_en_partner_desc" class="form-control">{{ !empty($web->site_en_partner_desc) ? $web->site_en_partner_desc : '' }}</textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">

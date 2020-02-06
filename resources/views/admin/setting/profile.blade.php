@@ -50,7 +50,22 @@
             <div class="form-group row">
                 <label for="about_us" class="form-control-label col-sm-3 mt-2">Tentang Kami</label>
                 <div class="col-sm-6 col-md-9">
-                    <textarea name="about_us" class="form-control">{{ !empty($profile->about_us) ? $profile->about_us : '' }}</textarea>
+                    <ul class="nav nav-pills" id="aboutTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="about-id-tab" data-toggle="tab" href="#about-id" role="tab" aria-controls="about-id" aria-selected="true">ID</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="about-en-tab" data-toggle="tab" href="#about-en" role="tab" aria-controls="about-en" aria-selected="true">EN</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="aboutTabContent">
+                        <div class="tab-pane fade show active" id="about-id" role="about-id" aria-labelledby="about-id-tab">
+                            <textarea name="about_us" class="form-control">{{ !empty($profile->about_us) ? $profile->about_us : '' }}</textarea>
+                        </div>
+                        <div class="tab-pane fade" id="about-en" role="tabpanel" aria-labelledby="about-en-tab">
+                            <textarea name="en_about_us" class="form-control">{{ !empty($profile->en_about_us) ? $profile->en_about_us : '' }}</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="mt-5 mb-4">
@@ -76,7 +91,22 @@
             <div class="form-group row">
                 <label for="vision" class="form-control-label col-sm-3 mt-2">Visi</label>
                 <div class="col-sm-6 col-md-9">
-                    <textarea name="vision" class="form-control">{{ !empty($profile->vision) ? $profile->vision : '' }}</textarea>
+                    <ul class="nav nav-pills" id="visionTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="vision-id-tab" data-toggle="tab" href="#vision-id" role="tab" aria-controls="vision-id" aria-selected="true">ID</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="vision-en-tab" data-toggle="tab" href="#vision-en" role="tab" aria-controls="vision-en" aria-selected="true">EN</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="visionTabContent">
+                        <div class="tab-pane fade show active" id="vision-id" role="vision-id" aria-labelledby="vision-id-tab">
+                            <textarea name="vision" class="form-control">{{ !empty($profile->vision) ? $profile->vision : '' }}</textarea>
+                        </div>
+                        <div class="tab-pane fade" id="vision-en" role="tabpanel" aria-labelledby="about-en-tab">
+                            <textarea name="en_vision" class="form-control">{{ !empty($profile->en_vision) ? $profile->en_vision : '' }}</textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">

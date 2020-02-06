@@ -77,14 +77,18 @@
                         data-toggle="popover"
                         data-img="{{ $aksi->getFirstMediaUrl('thumbs') }}"
                         data-name="{{ $aksi->name }}"
-                        data-desc="{{ $aksi->description }}">
+                        data-desc="{{ SettingHelper::locale($aksi->description, $aksi->en_description) }}"
+                        data-playstore="{{ $aksi->playstore_link }}"
+                        data-appstore="{{ $aksi->appstore_link }}"
+                        data-web="{{ $aksi->web_link }}"
+                        >
                         <div class="wrapper-product">
                             <div class="icon-product child-left">
                                 <img src="{{ $aksi->getFirstMediaUrl('images') }}" alt="{{ $aksi->name }}">
                             </div>
                             <div class="title-product child-right">
                                 <h5>{!! str_replace('AKSI', '<span>AKSI</span>', $aksi->name) !!}</h5>
-                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($aksi->description), 40, $end='...') }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags(SettingHelper::locale($aksi->description, $aksi->en_description)), 40, $end='...') }}</p>
                             </div>
                         </div>
                     </a>
@@ -106,14 +110,18 @@
                         data-toggle="popover"
                         data-img="{{ $ayo->getFirstMediaUrl('thumbs') }}"
                         data-name="{{ $ayo->name }}"
-                        data-desc="{{ $ayo->description }}">
+                        data-desc="{{ SettingHelper::locale($ayo->description, $ayo->en_description) }}"
+                        data-playstore="{{ $ayo->playstore_link }}"
+                        data-appstore="{{ $ayo->appstore_link }}"
+                        data-web="{{ $ayo->web_link }}"                        
+                        >
                         <div class="wrapper-product">
                             <div class="icon-product child-left">
                                 <img src="{{ $ayo->getFirstMediaUrl('images') }}" alt="{{ $ayo->name }}">
                             </div>
                             <div class="title-product child-right">
                                 <h5>{!! str_replace(['AYO', 'Sia'], ['<span>AYO</span>','<span>Sia</span>'], $ayo->name) !!}</h5>
-                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($ayo->description), 40, $end='...') }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags(SettingHelper::locale($ayo->description, $ayo->en_description)), 40, $end='...') }}</p>
                             </div>
                         </div>
                     </a>
@@ -207,7 +215,7 @@
             @foreach($testimonies as $testimony)
                 <div class="card item testimoni-item">
                     <div class="card-body">
-                        <p>{{ \Illuminate\Support\Str::limit($testimony->content, 150, $end='...') }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit(SettingHelper::locale($testimony->content, $testimony->en_content), 150, $end='...') }}</p>
                         <div class="container">
                             <div class="row">
                                 <div class="wrap-avatar">
@@ -246,13 +254,15 @@
             fallbackPlacement: ['top'],
             flip: 'top',
             content: function () {
-                let img = $(this).data('img');
-                if(img != ''){
-                   cls = 'has-image' ;
-                } else {
-                    cls = '';
-                }
-                return '<div class="thumbnail"><img src="'+$(this).data('img')+'"/></div><h6 class="'+cls+'">'+$(this).data('name')+'</h6><p>'+$(this).data('desc')+'</p><div class="wrapper-btn-pop"><a class="btn btn-outline-primary" href="#"><img src="{{ asset('/images/ic-play.svg') }}" alt=""> PlayStore</a><a class="btn btn-outline-primary" href="#"><img src="{{ asset('/images/ic-app.svg') }}" alt=""> AppStore</a><a class="btn btn-outline-primary" href="#"><img src="{{ asset('/images/ic-web.svg') }}" alt=""> Website</a></div>';
+                cls = ($(this).data('img') !== '') ? 'has-image' : '';
+                
+                ps = ($(this).data('playstore') !== '') ? '<a class="btn btn-outline-primary" href="'+$(this).data('playstore')+'" target="_blank"><img src="{{ asset('/images/ic-play.svg') }}" alt=""> PlayStore</a>' : '';
+                
+                ap = ($(this).data('appstore') !== '') ? '<a class="btn btn-outline-primary" href="'+$(this).data('appstore')+'" target="_blank"><img src="{{ asset('/images/ic-app.svg') }}" alt=""> AppStore</a>' : '';
+                
+                web = ($(this).data('web') !== '') ? '<a class="btn btn-outline-primary" href="'+$(this).data('web')+'" target="_blank"><img src="{{ asset('/images/ic-web.svg') }}" alt=""> Website</a></div>' : '';
+
+                return '<div class="thumbnail"><img src="'+$(this).data('img')+'"/></div><h6 class="'+cls+'">'+$(this).data('name')+'</h6><p>'+$(this).data('desc')+'</p><div class="wrapper-btn-pop">'+ps+ap+web;
             },
         }) ;
     });

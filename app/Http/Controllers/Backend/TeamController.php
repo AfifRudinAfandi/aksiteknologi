@@ -145,6 +145,7 @@ class TeamController extends Controller
         $team->division_id = $request->division_id;
         $team->email = $request->email;
         $team->bio = $request->bio;
+        $team->en_bio = $request->en_bio;
         $team->social_provider = $request->social_provider;
         $team->social_link = $request->social_link;
 
@@ -228,6 +229,7 @@ class TeamController extends Controller
         $team->division_id = $request->division_id;
         $team->email = $request->email;
         $team->bio = $request->bio;
+        $team->en_bio = $request->en_bio;
         $team->social_provider = $request->social_provider;
         $team->social_link = $request->social_link;
 

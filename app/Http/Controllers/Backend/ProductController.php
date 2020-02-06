@@ -113,13 +113,19 @@ class ProductController extends Controller
             $product->profile_id = $this->profile_id;
             $product->name = $request->name;
             $product->description = $request->description;
+            $product->en_description = $request->en_description;
             $product->is_displayed = $request->is_displayed;
             $product->type = $request->type;
-
+            $product->playstore_link = $request->playstore_link;
+            $product->appstore_link = $request->appstore_link;
+            $product->web_link = $request->web_link;
+    
             $save = $product->save();
                     
             $product->addMediaFromRequest('image')->toMediaCollection('images');
-            $product->addMediaFromRequest('thumb')->toMediaCollection('thumbs');
+            if ($request->hasFile('thumb') && $request->file('thumb')->isValid()) {
+                $product->addMediaFromRequest('thumb')->toMediaCollection('thumbs');
+            }
 
             if ($save) {
                 Alert::toast('Sukses menyimpan data', 'success');
@@ -136,7 +142,7 @@ class ProductController extends Controller
 
     public function getEdit(Request $request)
     {
-        return Product::where('id', '=', $request->id)->select(['id', 'name', 'description', 'type', 'is_displayed'])->first();
+        return Product::where('id', '=', $request->id)->first();
     }
 
     /**
@@ -152,6 +158,10 @@ class ProductController extends Controller
         $product->profile_id = $this->profile_id;
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->en_description = $request->en_description;
+        $product->playstore_link = $request->playstore_link;
+        $product->appstore_link = $request->appstore_link;
+        $product->web_link = $request->web_link;
         $product->is_displayed = $request->is_displayed;
         $product->type = $request->type;
 
