@@ -113,6 +113,7 @@ class ProductController extends Controller
             $product->profile_id = $this->profile_id;
             $product->name = $request->name;
             $product->description = $request->description;
+            $product->en_description = $request->en_description;
             $product->is_displayed = $request->is_displayed;
             $product->type = $request->type;
 
@@ -152,6 +153,7 @@ class ProductController extends Controller
         $product->profile_id = $this->profile_id;
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->en_description = $request->en_description;
         $product->is_displayed = $request->is_displayed;
         $product->type = $request->type;
 
