@@ -195,6 +195,8 @@ h1 {
 .title-servis {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
 }
 
 .title-servis h5 {
@@ -223,7 +225,7 @@ h1 {
 }
 
 .logo-servis img {
-    width: 100px;
+    width: 16%;
     margin: auto;
 }
 
@@ -238,6 +240,8 @@ h1 {
 .title {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
 }
 
 .title h5 {
@@ -266,7 +270,7 @@ h1 {
 }
 
 .logo-partner img {
-    width: 100px;
+    width: 16%;
     margin: auto;
 }
 
