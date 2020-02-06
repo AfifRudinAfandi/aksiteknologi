@@ -38,6 +38,19 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .card-contact a .wrapper-contact {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card-contact a .wrapper-contact .icon-contact {
+        margin-bottom: 11px;
+    }
+    .card-contact a .wrapper-contact .icon-contact {
+        padding-right: 0;
+    }
+    .icon-footer{
+        width: 42px !important;
+    }
     .navbar {
         background: #1a2749;
         height: auto;

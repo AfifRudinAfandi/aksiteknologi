@@ -13,7 +13,7 @@
                 <a class="link-card-ft" href="tel:{{ SettingHelper::phone() }}">
                     <div class="wrapper-contact">
                         <div class="icon-contact">
-                            <img style="max-width: 56px;" src="{{ asset('/images/ic-telephone.png') }}" alt="">
+                            <img class="icon-footer" style="max-width: 56px;" src="{{ asset('/images/ic-telephone.png') }}" alt="">
                         </div>
                         <div class="title-contact">
                             <p>{{ SettingHelper::phone() }}</p>
@@ -25,7 +25,7 @@
                 <a class="link-card-ft" href="mailto:{{ SettingHelper::email() }}">
                     <div class="wrapper-contact">
                         <div class="icon-contact">
-                            <img style="max-width: 56px;" src="{{ asset('/images/ic-mail.png') }}" alt="">
+                            <img class="icon-footer" style="max-width: 56px;" src="{{ asset('/images/ic-mail.png') }}" alt="">
                         </div>
                         <div class="title-contact">
                             <p>{{ SettingHelper::email() }}</p>
