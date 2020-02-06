@@ -124,6 +124,7 @@ class TestimonyController extends Controller
             $testimony->name = $request->name;
             $testimony->bio = $request->bio;
             $testimony->content = $request->content;
+            $testimony->en_content = $request->en_content;
             $testimony->is_displayed = $request->is_displayed;
 
             $save = $testimony->save();
@@ -145,7 +146,7 @@ class TestimonyController extends Controller
 
     public function getEdit(Request $request)
     {
-        return Testimony::where('id', '=', $request->id)->select(['id', 'name', 'bio', 'content','is_displayed'])->first();
+        return Testimony::where('id', '=', $request->id)->first();
     }
 
     /**
@@ -162,6 +163,7 @@ class TestimonyController extends Controller
         $testimony->name = $request->name;
         $testimony->bio = $request->bio;
         $testimony->content = $request->content;
+        $testimony->en_content = $request->en_content;
         $testimony->is_displayed = $request->is_displayed;
 
         $save = $testimony->save();

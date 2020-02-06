@@ -129,9 +129,11 @@ class AdminController extends Controller
         $company->company_name = $request->company_name;
         $company->address = $request->address;
         $company->about_us = $request->about_us;
+        $company->en_about_us = $request->en_about_us;
         $company->email = $request->email;
         $company->phone = $request->phone;
         $company->vision = $request->vision;
+        $company->en_vision = $request->en_vision;
         $company->map = $request->map;
 
         $company->save();

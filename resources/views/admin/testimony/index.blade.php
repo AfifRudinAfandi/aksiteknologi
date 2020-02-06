@@ -78,7 +78,22 @@ main-wrapper-2
                     </div>
                     <div class="form-group">
                         <label>Konten Testimoni</label>
-                        <input type="text" name="content" placeholder="konten testimoni" class="form-control">
+                        <ul class="nav nav-pills" id="bioTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="id-tab" data-toggle="tab" href="#cid" role="tab" aria-controls="id" aria-selected="true">ID</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="true">EN</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="bioTabContent">
+                            <div class="tab-pane fade show active" id="cid" role="id" aria-labelledby="id-tab">
+                                <textarea name="content" style="height: 100px;" class="form-control"></textarea>
+                            </div>
+                            <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                                <textarea name="en_content" style="height: 100px;" class="form-control"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Ditampilkan?</label>
@@ -132,7 +147,22 @@ main-wrapper-2
                         </div>
                         <div class="form-group">
                             <label>Konten Testimoni</label>
-                            <input type="text" name="content" id="content" class="form-control">
+                            <ul class="nav nav-pills" id="bioEditTab" role="tablist">
+                                <li class="nav-item">
+                                  <a class="nav-link active" id="edit-id-tab" data-toggle="tab" href="#edit-id" role="tab" aria-controls="edit-id" aria-selected="true">ID</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" id="edit-en-tab" data-toggle="tab" href="#edit-en" role="tab" aria-controls="edit-en" aria-selected="true">EN</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="bioEditTabContent">
+                                <div class="tab-pane fade show active" id="edit-id" role="edit-id" aria-labelledby="edit-id-tab">
+                                    <textarea id="content" name="content" style="height: 100px;" class="form-control"></textarea>
+                                </div>
+                                <div class="tab-pane fade" id="edit-en" role="tabpanel" aria-labelledby="en-tab">
+                                    <textarea id="en-content" name="en_content" style="height: 100px;" class="form-control"></textarea>
+                                </div>
+                            </div>    
                         </div>
                         <div class="form-group">
                             <label>Ditampilkan?</label>
@@ -248,6 +278,7 @@ main-wrapper-2
                         $('#name').val(result.name);
                         $('#bio').val(result.bio);
                         $('#content').val(result.content);
+                        $('#en-content').val(result.en_content);
                         $('#is-displayed').val(result.is_displayed);
                         $('#edit-spinner').hide();
                         $('#edit-input').fadeIn();

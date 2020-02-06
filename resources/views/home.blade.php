@@ -215,7 +215,7 @@
             @foreach($testimonies as $testimony)
                 <div class="card item testimoni-item">
                     <div class="card-body">
-                        <p>{{ \Illuminate\Support\Str::limit($testimony->content, 150, $end='...') }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit(SettingHelper::locale($testimony->content, $testimony->en_content), 150, $end='...') }}</p>
                         <div class="container">
                             <div class="row">
                                 <div class="wrap-avatar">
