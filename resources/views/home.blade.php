@@ -64,7 +64,7 @@
 <section class="our-product">
     <h2>{!! __('page.home.our_product') !!}</h2>
     <div class="container">
-    @if($aksiProducts->isNotEmpty())
+        @if($aksiProducts->isNotEmpty())
             <div class="row mb-5">
                 <div class="col-md-4 center-col-parent pr-0 rev-title-product">
                     <div class="wrapper-product">
