@@ -51,7 +51,7 @@
 
 @section('content')
 
-<section class="hero hero-about-cp our-product-hero">
+<section class="hero hero-about-cp our-product-hero" style="display:none;">
     <div class="container wrapper-content">
         <h1 class="hero-product"><span>{{ __('page.product.product') }}</span></h1>
         <h1 class="hero-product">{{ SettingHelper::name() }}</h1>

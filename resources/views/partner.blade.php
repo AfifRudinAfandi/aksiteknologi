@@ -8,7 +8,7 @@
 <section class="our-partner-pg">
     <!-- <h6>{{ SettingHelper::name() }}</h6> -->
     <h4>{!! __('page.partner.partner') !!}</h4>
-    <p></p>
+    <p>{{ SettingHelper::partnerDesc() }}</p>
 </section>
 <section class="ic-our-partner">
     <div class="container">
