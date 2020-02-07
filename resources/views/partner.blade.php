@@ -6,9 +6,9 @@
 
 @section('content')
 <section class="our-partner-pg">
-    <h6>{{ SettingHelper::name() }}</h6>
+    <!-- <h6>{{ SettingHelper::name() }}</h6> -->
     <h4>{!! __('page.partner.partner') !!}</h4>
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. </p>
+    <p></p>
 </section>
 <section class="ic-our-partner">
     <div class="container">
