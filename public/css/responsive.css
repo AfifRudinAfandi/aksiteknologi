@@ -766,7 +766,7 @@
         flex-direction: column;
     }
     .logo-partner img {
-        width: 90px;
+        width: 20%;
     }
 
     .our-servis {
@@ -786,7 +786,7 @@
         flex-direction: column;
     }
     .logo-servis img {
-        width: 90px;
+        width: 20%;
     }
     .card-parent .card {
         margin-right: 16px;
