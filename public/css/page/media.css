@@ -1,7 +1,10 @@
 
 .ct-media-prt{
     padding-top: 180px;
-    padding-bottom: 240px;
+    padding-bottom: 40px;
+}
+.cl-media-left{
+  min-height: 600px;
 }
   .cl-media-left h4{
     font-weight: normal;
@@ -54,6 +57,8 @@
       border-radius: 12px;
       padding: 30px;
       padding-bottom: 80px;
+      position: sticky;
+      top: 100px;
   }
   .ct-kategori h4{
     font-weight: normal;

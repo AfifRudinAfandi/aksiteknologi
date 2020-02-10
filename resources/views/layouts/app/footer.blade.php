@@ -40,6 +40,7 @@
                 <h6>{{ SettingHelper::companyName() }}</h6>
                 <h6>{{ __('app.head_office') }}</h6>
                 <p style="max-width: 70%">{!! SettingHelper::address() !!}</p>
+                <a class="btn-location" href="{{ SettingHelper::map() }}" target="_blank">{{ __('app.menu.map') }}<i class="ml-2 fa fa-external-link"></i></a>
             </div>
             <div class="col footer-link">
                 <a href="{{ route('app.about') }}">{{ __('app.menu.about_us') }}</a>
@@ -49,7 +50,6 @@
             <div class="col footer-link">
                 <a href="{{ route('app.blog') }}">Media</a>
                 <a href="{{ route('app.career') }}">{{ __('app.menu.career') }}</a>
-                <a class="btn-location" href="{{ SettingHelper::map() }}" target="_blank">{{ __('app.menu.map') }}<i class="ml-2 fa fa-external-link"></i></a>
             </div>
             <div class="col-md-3 child-sosmed">
                 <h6>{{ __('app.find_us') }}</h6>
