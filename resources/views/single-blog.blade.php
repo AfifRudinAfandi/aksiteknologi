@@ -21,10 +21,10 @@
         <div class="row r-blog">
             <div class="col-md-8 blk-left-ct">
                 <div class="blk-ct-hd-left">
-                    @if(method_exists($post, 'getFirstMediaUrl'))
+                    @if(method_exists($post, 'getFirstMediaUrl') && $post->getFirstMediaUrl('images', 'thumbnail') != null)
                         <img src="{{ $post->getFirstMediaUrl('images', 'full') }}" alt="{{ $post->title }}">
                     @else
-                        <img src="{{ asset('/images/img-blog.png') }}" alt="no thumbnail">
+                        <img src="{{ asset('/images/no-thumbnail.png') }}" alt="no thumbnail">
                     @endif
                 </div>
                 <div class="blk-ct-bdy-left">
@@ -63,7 +63,7 @@
                             @endif
                         @endforeach
                     @else
-                        <p>{{ __('page.blog.empty') }}</p>
+                        <p>{{ __('page.blog.empty_post') }}</p>
                     @endif
                 </div>
             </div>
@@ -79,10 +79,10 @@
                 @foreach($relatedPosts as $relatedPost)
                     <div class="col-md-3 item-post">
                         <a href="{{ route('app.single', $relatedPost->slug) }}">
-                            @if(method_exists($relatedPost, 'getFirstMediaUrl'))
+                            @if(method_exists($relatedPost, 'getFirstMediaUrl') && $relatedPost->getFirstMediaUrl('images', 'thumbnail') != null)
                                 <img src="{{ $relatedPost->getFirstMediaUrl('images', 'full') }}" class="card-img-top" alt="{{ $post->title }}">
                             @else
-                                <img src="{{ asset('/images/img-blog.png') }}" class="card-img-top" alt="no thumbnail">
+                                <img src="{{ asset('/images/no-thumbnail.png') }}" class="card-img-top" alt="no thumbnail">
                             @endif
                         </a>
                         <div class="content-related">

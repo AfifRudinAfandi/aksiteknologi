@@ -13,7 +13,11 @@
                 @foreach($posts as $post)
                     <div class="wrapper-media-rw">
                         <div class="img-wrapper">
-                            <img src="{{ $post->getFirstMediaUrl('images', 'thumbnail') }}" alt="{{ $post->title }}">
+                            @if(method_exists($post, 'getFirstMediaUrl') && $post->getFirstMediaUrl('images', 'thumbnail') != null)
+                                <img src="{{ $post->getFirstMediaUrl('images', 'thumbnail') }}" alt="{{ $post->title }}">
+                            @else
+                                <img src="{{ asset('/images/no-thumbnail.png') }}" alt="no thumbnail">
+                            @endif
                         </div>
                         <div class="ctn-media-wrapper">
                             <a href="{{ route('app.single', $post->slug) }}"><h6>{{ $post->title }}</h6></a>

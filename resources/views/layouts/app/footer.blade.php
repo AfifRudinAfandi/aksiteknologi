@@ -39,7 +39,7 @@
             <div class="col-md-5 footer-left">
                 <h6>{{ SettingHelper::companyName() }}</h6>
                 <h6>{{ __('app.head_office') }}</h6>
-                <p style="max-width: 70%">{{ SettingHelper::address() }}</p>
+                <p style="max-width: 70%">{!! SettingHelper::address() !!}</p>
                 <a class="btn-location" href="{{ SettingHelper::map() }}" target="_blank">{{ __('app.menu.map') }}<i class="ml-2 fa fa-external-link"></i></a>
             </div>
             <div class="col footer-link">

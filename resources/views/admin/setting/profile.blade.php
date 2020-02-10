@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <label for="address" class="form-control-label col-sm-3 mt-2">Alamat</label>
                 <div class="col-sm-6 col-md-9">
-                    <textarea class="form-control" name="address" placeholder="Alamat lengkap">{{ !empty($profile->address) ? $profile->address : '' }}</textarea>
+                    <textarea class="form-control" name="address" id="address" placeholder="Alamat lengkap">{{ !empty($profile->address) ? $profile->address : '' }}</textarea>
                 </div>
             </div>
             <div class="form-group row align-items-center">
@@ -163,10 +163,13 @@
 @endsection
 
 @push('scripts')
-
 <script src="{{ asset('/stisla/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
+<script src="{{ asset('/stisla/modules/ckeditor/ckeditor.js') }}"></script>
+
 <script type="text/javascript">
     $(function() {
+
+        CKEDITOR.replace('address');
 
         $.uploadPreview({
             input_field: "#image-upload",

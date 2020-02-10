@@ -86,7 +86,7 @@ main-wrapper-1
                             <select name="status" class="form-control">
                                 <option value="draft">Draft</option>
                                 <option value="published">Publish</option>
-                                <option value="archived">Archive</option>
+                                <option value="featured">Publish & Featured</option>
                             </select>
                         </div>
                         <div class="media mb-4">

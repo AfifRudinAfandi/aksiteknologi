@@ -25,29 +25,8 @@ class PostController extends Controller
     }
 
 
-    // public function postType($type)
-    // {
-    //     $default_type = ['berita', 'karir'];
-
-    //     if(in_array($type, $default_type)){
-    //         return view('admin.post.index')
-    //                 ->withType($type);
-    //     }else{
-    //         return abort(404);
-    //     }
-
-    // }
-
-
     public function datatable(Request $request)
     {
-        // if(isset($request->type)){
-        //     $get_type_id = DB::table('post_type')->select('id')->where('name', '=', $request->type)->first();
-        //     $posts = Post::where('post_type_id', '=', $get_type_id->id)->get();
-        // } else {
-        //     $posts = Post::all();
-        // }
-
         $posts = Post::all();
 
         return DataTables::of($posts)
@@ -74,7 +53,7 @@ class PostController extends Controller
                         $color = 'danger';
                     }else if($status === 'published'){
                         $color = 'primary';
-                    }else if($status === 'archived'){
+                    }else if($status === 'featured'){
                         $color = 'warning';
                     }
                     return '<span class="badge badge-'.$color.'">'.$post->status.'</span>';
@@ -95,7 +74,6 @@ class PostController extends Controller
     public function create()
     {
         $rule = [
-            // 'post_type_id' => 'required',
             'category_id' => 'required',
             'title' => 'required|min:5',
             'content' => 'required|min:20',
@@ -109,7 +87,6 @@ class PostController extends Controller
 
         $attribute = [
             'title' => 'Judul',
-            // 'post_type_id' => 'Tipe post',
             'category_id' => 'Kategori',
             'content' => 'Kontent',
             'status' => 'Status post',
@@ -117,7 +94,6 @@ class PostController extends Controller
 
         $validator = JsValidator::make($rule, $message, $attribute);
 
-        // $type = DB::table('post_type')->select('id', 'name')->get();
         return view('admin.post.create')
                 ->withValidator($validator);
     }
@@ -134,7 +110,6 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->category_id = $request->category_id;
-        // $post->post_type_id = $request->post_type_id;
         $post->content = $request->content;
         $post->tag = $request->tag;
         $post->status = $request->status;
@@ -190,7 +165,6 @@ class PostController extends Controller
 
         $attribute = [
             'title' => 'Judul',
-            // 'post_type_id' => 'Tipe post',
             'category_id' => 'Kategori',
             'content' => 'Kontent',
             'status' => 'Status post',
@@ -200,7 +174,6 @@ class PostController extends Controller
 
         $post = Post::where('id', $id)->firstOrFail();
 
-        // $type = DB::table('post_type')->select('id', 'name')->get();
         return view('admin.post.edit')
                 ->withPost($post)
                 ->withValidator($validator);
@@ -219,7 +192,6 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->category_id = $request->category_id;
-        // $post->post_type_id = $request->post_type_id;
         $post->content = $request->content;
         $post->tag = $request->tag;
         $post->status = $request->status;
@@ -302,6 +274,12 @@ class PostController extends Controller
         return $output;
     }
 
+    public function destroyImage($id)
+    {
+        $post = Post::where('id', '=', $id)->firstOrFail();
+        $post->clearMediaCollection('images');
+        return redirect()->back();
+    }
 
     public function getCategory()
     {

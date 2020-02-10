@@ -223,6 +223,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'vi
         Route::delete('/destroy', 'PostController@destroy')->name('destroy');
         Route::delete('/destroy-all', 'PostController@destroyAll')->name('destroy_all');
         Route::delete('/destroy-category', 'PostController@destroyCategory')->name('destroy_category');
+        Route::delete('/destroy-image/{id}', 'PostController@destroyImage')->name('destroy_image');
 
         Route::group(['prefix' => '{id}'], function() {
             Route::get('/edit', 'PostController@edit')->name('edit');
