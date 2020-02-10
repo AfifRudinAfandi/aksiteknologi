@@ -112,16 +112,39 @@
             <div class="form-group row">
                 <label class="form-control-label col-sm-3 mt-2">Misi</label>
                 <div class="col-sm-6 col-md-9">
-                    <input type="hidden" name="mission">
-                    <button type="button" id="add-mission" class="btn btn-sm btn-success mt-2"><i class="fa fa-plus mr-2"></i>Tambah</button>
-                    <div class="mt-4">
-                        <div id="mission-spinner">
-                            <div class="spinner-grow" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
+                    <ul class="nav nav-pills" id="missionTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="mission-id-tab" data-toggle="tab" href="#mission-id" role="tab" aria-controls="mission-id" aria-selected="true">ID</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="mission-en-tab" data-toggle="tab" href="#mission-en" role="tab" aria-controls="mission-en" aria-selected="true">EN</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="missionTabContent">
+                        <div class="tab-pane fade show active" id="mission-id" role="mission-id" aria-labelledby="mission-id-tab">
+                            <button type="button" id="add-mission" data-lang="id" class="btn btn-sm btn-success mt-2"><i class="fa fa-plus mr-2"></i>Tambah</button>
+                            <div class="mt-4">
+                                <div class="mission-spinner">
+                                    <div class="spinner-grow" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <ul id="list-mission-id" class="list-group list-group-flush">
+                                </ul>
+                            </div>        
                         </div>
-                        <ul id="list-mission" class="list-group list-group-flush">
-                        </ul>
+                        <div class="tab-pane fade" id="mission-en" role="tabpanel" aria-labelledby="mission-en-tab">
+                            <button type="button" id="add-mission" data-lang="en" class="btn btn-sm btn-success mt-2"><i class="fa fa-plus mr-2"></i>Tambah</button>
+                            <div class="mt-4">
+                                <div class="mission-spinner">
+                                    <div class="spinner-grow" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <ul id="list-mission-en" class="list-group list-group-flush">
+                                </ul>
+                            </div>        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -160,13 +183,20 @@
             e.preventDevault();
         })
 
-        getMission();
+        getMission('id');
+        getMission('en');
 
-        function getMission() {
-            $('#mission-spinner').fadeIn();
+        function getMission(lang) {
+            $('.mission-spinner').fadeIn();
+            if(lang == 'id') {
+                var html = $('#list-mission-id');
+            } else if(lang == 'en') {
+                var html = $('#list-mission-en');
+            }
             $.ajax({
-                method: "GET",
+                method: "POST",
                 url: "{{ route('admin.setting.mission.index') }}",
+                data: {lang: lang},
                 success: function(result) {
                     if (result != '') {
                         var list = [];
@@ -174,16 +204,17 @@
                             list += '<li class="list-group-item px-0 py-2"><div class="label-mission">' + row.content + '</div><button type="button" class="btn btn-sm px-0 edit-mission mt-2 mr-2" data-id="' + row.id + '"><i class="fa fa-edit mr-2"></i>Ubah</button><button type="button" class="btn btn-sm px-0 delete-mission mt-2" data-id="' + row.id + '"><i class="fa fa-trash-alt text-danger mr-2"></i>Hapus</button></li>';
                         })
 
-                        $('#list-mission').html(list)
+                        html.html(list)
                     } else {
-                        $('#list-mission').html('<li class="list-group-item px-0 py-2">Tidak ada data</li>');
+                        html.html('<li class="list-group-item px-0 py-2">Tidak ada data</li>');
                     }
-                    $('#mission-spinner').fadeOut();
+                    $('.mission-spinner').fadeOut();
                 }
             })
         }
 
         $(document).on('click', '#add-mission', function() {
+            var lang = $(this).data('lang');
             Swal.fire({
                 input: 'textarea',
                 inputAttributes: {
@@ -198,13 +229,16 @@
                         $.ajax({
                             method: "POST",
                             url: "{{ route('admin.setting.mission.store') }}",
-                            data: {content: mission},
+                            data: {
+                                content: mission,
+                                lang: lang
+                            },
                             success: function(result) {
                                 Swal.fire({
                                     icon: result.status,
                                     title: result.message,
                                 });
-                                getMission();
+                                getMission(lang);
                             }
                         })
                     }
@@ -241,7 +275,8 @@
                                     icon: result.status,
                                     title: result.message,
                                 });
-                                getMission();
+                                getMission('id');
+                                getMission('en');
                             }
                         })
                     }
@@ -272,7 +307,8 @@
                                 icon: result.status,
                                 title: result.message,
                             });
-                            getMission();
+                            getMission('id');
+                            getMission('en');
                         }
                     })
                 }

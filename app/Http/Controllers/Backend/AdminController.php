@@ -244,16 +244,20 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function getMission()
+    public function getMission(Request $request)
     {
-        return DB::table('missions')->where('profile_id', '=', ProfileHelper::getId())->get();
+        return DB::table('missions')->where([
+            ['lang', '=', $request->lang],
+            ['profile_id', '=', ProfileHelper::getId()]
+        ])->get();
     }
 
     public function storeMission(Request $request)
     {
         $mission = DB::table('missions')->insert([
             'profile_id' => ProfileHelper::getId(),
-            'content' => $request->content
+            'content' => $request->content,
+            'lang' => $request->lang
         ]);
 
         if ($mission) {

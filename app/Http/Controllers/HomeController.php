@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Helpers\ProfileHelper;
 use App\Models\Product;
 use App\Models\Message;
@@ -69,7 +70,10 @@ class HomeController extends Controller
 
     public function about()
     {
-        $missions = DB::table('missions')->where('profile_id', '=', ProfileHelper::getIdActive())->get();
+        $missions = DB::table('missions')->where([
+            ['lang', '=', App::getLocale()],
+            ['profile_id', '=', ProfileHelper::getIdActive()]
+        ])->get();
         return view('about')
             ->withMissions($missions);
     }
@@ -275,6 +279,7 @@ class HomeController extends Controller
         if(!empty($query)){
             $careers = Career::where('job_title', 'LIKE', '%'.$query.'%')->orderBy('created_at', 'desc')->get();
             $posts = Post::where('title', 'LIKE', '%'.$query.'%')
+                ->where('status', '=', 'published')
                 ->orWhere('content', 'LIKE', '%$query%')
                 ->orderBy('created_at', 'desc')->get();
         } else {
