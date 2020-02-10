@@ -171,7 +171,11 @@
                         @foreach($mediaPosts as $media)
                             <div class="card">
                                 <a href="{{ route('app.single', $media->slug) }}">
-                                    <img src="{{ $media->getFirstMediaUrl('images', 'thumbnail') }}" class="card-img-top" alt="{{ $media->title }}">
+                                    @if(method_exists($media, 'getFirstMediaUrl') && $media->getFirstMediaUrl('images', 'thumbnail') != null)
+                                        <img src="{{ $media->getFirstMediaUrl('images', 'thumbnail') }}" class="card-img-top" alt="{{ $media->title }}">
+                                    @else
+                                        <img src="{{ asset('/images/no-thumbnail.png') }}" alt="no thumbnail">
+                                    @endif
                                 </a>
                                 <div class="card-body">
                                     <a href="{{ route('app.single', $media->slug) }}">

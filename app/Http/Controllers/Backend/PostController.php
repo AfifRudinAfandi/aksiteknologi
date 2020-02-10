@@ -74,7 +74,6 @@ class PostController extends Controller
     public function create()
     {
         $rule = [
-            // 'post_type_id' => 'required',
             'category_id' => 'required',
             'title' => 'required|min:5',
             'content' => 'required|min:20',
@@ -88,7 +87,6 @@ class PostController extends Controller
 
         $attribute = [
             'title' => 'Judul',
-            // 'post_type_id' => 'Tipe post',
             'category_id' => 'Kategori',
             'content' => 'Kontent',
             'status' => 'Status post',
@@ -96,7 +94,6 @@ class PostController extends Controller
 
         $validator = JsValidator::make($rule, $message, $attribute);
 
-        // $type = DB::table('post_type')->select('id', 'name')->get();
         return view('admin.post.create')
                 ->withValidator($validator);
     }
@@ -168,7 +165,6 @@ class PostController extends Controller
 
         $attribute = [
             'title' => 'Judul',
-            // 'post_type_id' => 'Tipe post',
             'category_id' => 'Kategori',
             'content' => 'Kontent',
             'status' => 'Status post',
@@ -178,7 +174,6 @@ class PostController extends Controller
 
         $post = Post::where('id', $id)->firstOrFail();
 
-        // $type = DB::table('post_type')->select('id', 'name')->get();
         return view('admin.post.edit')
                 ->withPost($post)
                 ->withValidator($validator);
@@ -279,6 +274,12 @@ class PostController extends Controller
         return $output;
     }
 
+    public function destroyImage($id)
+    {
+        $post = Post::where('id', '=', $id)->firstOrFail();
+        $post->clearMediaCollection('images');
+        return redirect()->back();
+    }
 
     public function getCategory()
     {

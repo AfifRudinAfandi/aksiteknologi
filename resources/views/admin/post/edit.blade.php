@@ -71,12 +71,16 @@ main-wrapper-1
                         <h4>Gambar</h4>
                     </div>
                     <div class="card-body">
-                        <img src="{{ $post->getFirstMediaUrl('images') }}" class="img img-thumbnail img-responsive mb-4">
                         <label>Ubah Gambar:</label>
-                        <div id="image-preview" class="image-preview">
+                        <div id="image-preview" class="image-preview" style="background-image: url('{{ method_exists($post, 'getFirstMediaUrl') && $post->getFirstMediaUrl('images', 'thumbnail') != null ? $post->getFirstMediaUrl('images', 'thumbnail') : '' }}'); background-size: cover; background-color: #dee2e6;"">
                             <label for="image-upload" id="image-label">Pilih File</label>
                             <input type="file" name="image" id="image-upload" />
                         </div>
+                        @if(method_exists($post, 'getFirstMediaUrl') && $post->getFirstMediaUrl('images') != null)
+                            <button id="delete-image" type="button" class="btn btn-sm btn-danger mt-2">
+                                Hapus Gambar
+                            </button>
+                        @endif
                     </div>
                 </div>
 
@@ -109,6 +113,13 @@ main-wrapper-1
         </div>
     </div>
 </form>
+
+<form id="form-delete" action="{{ route('admin.post.destroy_image', !empty($post->id) ? $post->id : '') }}" method="POST" class="form-inline">
+    @csrf
+    @method('delete')
+</form>
+
+
 @endsection
 
 @push('scripts')
@@ -121,6 +132,11 @@ main-wrapper-1
 <script>
     
     CKEDITOR.replace('editor');
+
+    $(document).on('click', '#delete-image', function(e) {
+        $('#form-delete').submit();
+        e.preventDevault();
+    });
 
     $("#form").submit(function(e) {
         var content_length = CKEDITOR.instances['editor'].getData().replace(/<[^>]*>/gi, '').length;

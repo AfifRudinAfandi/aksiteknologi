@@ -299,6 +299,14 @@ h1 {
     padding-top: 100px;
 }
 
+.recent-post .parent-post .left-post .wraper-content .content .card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+}
+
 .recent-post .parent-post .left-post .wraper-content .content h5 {
     color: #1A2749;
     font-size: 42px;
