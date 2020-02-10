@@ -63,7 +63,7 @@
                             @endif
                         @endforeach
                     @else
-                        <p>{{ __('page.blog.empty') }}</p>
+                        <p>{{ __('page.blog.empty_post') }}</p>
                     @endif
                 </div>
             </div>

@@ -34,12 +34,12 @@ class HomeController extends Controller
             ['is_displayed', '!=', 0],
         ])->orderBy('created_at', 'desc')->limit(5)->get();
 
-        $mediaPosts = Post::where('status', '=', 'published')
-        ->with(['category' => function($q) {
-            $q->where('category', '=', 'media');
-        }])->orderBy('created_at', 'desc')->limit(2)->get();
+        $mediaPosts = Post::where([
+            ['status', '=', 'featured'],
+            ['status', '!=', 'draft']
+        ])->orderBy('created_at', 'desc')->limit(2)->get();
 
-        $recentPosts = Post::where('status', '=', 'published')->limit(3)->orderBy('created_at', 'desc')->get();
+        $recentPosts = Post::where('status', '!=', 'draft')->limit(3)->orderBy('created_at', 'desc')->get();
 
         $aksiProducts = Product::where([
             ['profile_id', '=', ProfileHelper::getIdActive()],
@@ -83,12 +83,14 @@ class HomeController extends Controller
         $directors = Team::where('profile_id', '=', ProfileHelper::getIdActive())
             ->whereHas('division', function($q){
                 $q->where('name', 'LIKE', '%direktur%');
-            })->orderBy('name', 'asc')->get();
+            })->orderBy('id', 'asc')->get();
+
         $teams = Team::where('profile_id', '=', ProfileHelper::getIdActive())
             ->whereHas('division', function($q){
                 $q->where('name', 'NOT LIKE', '%direktur%');
             })->orderBy('name', 'asc')->get();
-        return view('team')
+
+            return view('team')
             ->withDirectors($directors)
             ->withTeams($teams);
     }
@@ -125,31 +127,31 @@ class HomeController extends Controller
     {
         return view('blog')
             ->withCategories(Category::where('category_for', '=', 'blog')->get())
-            ->withPosts(Post::orderBy('created_at', 'desc')->get());
+            ->withPosts(Post::where('status', '!=', 'draft')->orderBy('created_at', 'desc')->get());
     }
 
     public function blogCategory($category_id)
     {
         return view('blog')
             ->withCategories(Category::where('category_for', '=', 'blog')->get())
-            ->withPosts(Post::where('category_id', '=', $category_id)->orderBy('created_at', 'desc')->get());
+            ->withPosts(Post::where([['status', '!=', 'draft'],['category_id', '=', $category_id]])->orderBy('created_at', 'desc')->get());
     }
 
     public function single($slug)
     {
         $post = Post::where([
-            ['status', '=', 'published'],
+            ['status', '!=', 'draft'],
             ['slug', '=', $slug],
         ])->firstOrFail();
 
         $recentPosts = Post::where([
-            ['status', '=', 'published'],
+            ['status', '!=', 'draft'],
             ['slug', '!=', $slug],
         ])->limit(3)->orderBy('created_at', 'desc')->get();
 
         $tags = explode(',', $post->tag);
         $relatedPosts = Post::where([
-            ['status', '=', 'published'],
+            ['status', '!=', 'draft'],
             ['slug', '!=', $slug],
         ])->where(function($q) use($tags){
             foreach ($tags as $tag) {

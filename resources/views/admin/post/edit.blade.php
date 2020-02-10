@@ -90,8 +90,8 @@ main-wrapper-1
                                 <select name="status" class="form-control">
                                     <option value="draft" {{ $post->status == 'draft' ? 'selected' : '' }}>Draft</option>
                                     <option value="published" {{ $post->status == 'published' ? 'selected' : '' }}>Publish</option>
-                                    <option value="archived" {{ $post->status == 'archived' ? 'selected' : '' }}>Archive</option>
-                                </select>                        
+                                    <option value="featured" {{ $post->status == 'featured' ? 'selected' : '' }}>Publish & Featured</option>
+                                </select>      
                             </div>
                             <div class="media mb-4">
                                 <figure class="avatar mr-2 bg-primary text-white" data-initial=""></figure>

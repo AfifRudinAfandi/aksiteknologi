@@ -149,8 +149,6 @@
             html: true,
             trigger: 'focus',
             placement: 'top',
-            fallbackPlacement: ['top'],
-            flip: 'top',
             content: function () {
                 cls = ($(this).data('img') !== '') ? 'has-image' : '';
                 

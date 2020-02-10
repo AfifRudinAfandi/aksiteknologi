@@ -39,7 +39,7 @@
             <div class="col-md-5 footer-left">
                 <h6>{{ SettingHelper::companyName() }}</h6>
                 <h6>{{ __('app.head_office') }}</h6>
-                <p style="max-width: 70%">{{ SettingHelper::address() }}</p>
+                <p style="max-width: 70%">{!! SettingHelper::address() !!}</p>
             </div>
             <div class="col footer-link">
                 <a href="{{ route('app.about') }}">{{ __('app.menu.about_us') }}</a>

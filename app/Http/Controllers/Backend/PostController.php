@@ -25,29 +25,8 @@ class PostController extends Controller
     }
 
 
-    // public function postType($type)
-    // {
-    //     $default_type = ['berita', 'karir'];
-
-    //     if(in_array($type, $default_type)){
-    //         return view('admin.post.index')
-    //                 ->withType($type);
-    //     }else{
-    //         return abort(404);
-    //     }
-
-    // }
-
-
     public function datatable(Request $request)
     {
-        // if(isset($request->type)){
-        //     $get_type_id = DB::table('post_type')->select('id')->where('name', '=', $request->type)->first();
-        //     $posts = Post::where('post_type_id', '=', $get_type_id->id)->get();
-        // } else {
-        //     $posts = Post::all();
-        // }
-
         $posts = Post::all();
 
         return DataTables::of($posts)
@@ -74,7 +53,7 @@ class PostController extends Controller
                         $color = 'danger';
                     }else if($status === 'published'){
                         $color = 'primary';
-                    }else if($status === 'archived'){
+                    }else if($status === 'featured'){
                         $color = 'warning';
                     }
                     return '<span class="badge badge-'.$color.'">'.$post->status.'</span>';
@@ -134,7 +113,6 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->category_id = $request->category_id;
-        // $post->post_type_id = $request->post_type_id;
         $post->content = $request->content;
         $post->tag = $request->tag;
         $post->status = $request->status;
@@ -219,7 +197,6 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->category_id = $request->category_id;
-        // $post->post_type_id = $request->post_type_id;
         $post->content = $request->content;
         $post->tag = $request->tag;
         $post->status = $request->status;
