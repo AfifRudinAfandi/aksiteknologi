@@ -60,7 +60,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'vi
         Route::delete('/profile/{id}/destroy-logo', 'AdminController@destroyProfileLogo')->name('profile.destroyLogo');
 
         Route::group(['prefix' => 'mission', 'as' => 'mission.'], function() {
-            Route::get('/', 'AdminController@getMission')->name('index');
+            Route::post('/', 'AdminController@getMission')->name('index');
             Route::post('/store', 'AdminController@storeMission')->name('store');
             Route::patch('/update', 'AdminController@updateMission')->name('update');
             Route::delete('/destroy', 'AdminController@destroyMission')->name('destroy');
