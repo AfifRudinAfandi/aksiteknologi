@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row row-team">
             @foreach($directors as $director)
-                <div class="col-md-4 cm-our-team directors">
+                <div class="col-md-6 cm-our-team directors">
                     <div class="cm-profile">
                         <img src="{{ $director->getFirstMediaUrl('images', 'square') }}" alt="{{ $director->name }}">
                     </div>
