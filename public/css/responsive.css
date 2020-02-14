@@ -38,6 +38,9 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .float{
+        display: block !important;
+    }
     .nav-mobile{
         display: block !important;
     }
@@ -716,6 +719,9 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 601px) and (max-width: 991px) {
+    .float{
+        display: block !important;
+    }
     .nav-mobile{
         display: block !important;
     }
@@ -732,6 +738,7 @@
     }
     .nav-right{
         margin-left: 26px !important;
+        display: none !important;
     }
     .navbar {
         background: #1a2749;

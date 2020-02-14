@@ -7,7 +7,7 @@
                 <img src="{{ SettingHelper::siteLogo() }}" alt="logo" style="width: 100px;">
             @endif
         </a>
-        <ul class="navbar-nav nav-mobile nav-right flex-row d-md-flex">
+        <ul class="navbar-nav nav-mobile flex-row d-md-flex">
                 <li class="nav-item dropdown">
                     @if(Config::get('app.locale') == 'en' || Session::get('locale') == 'en')
                         <a class="btn btn-secondary btn-language dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -50,6 +50,14 @@
 @endpush
 
 @section('content')
+<div class="float">
+  <form class="search">
+    <div class="search__wrapper">
+      <input type="text" name="" placeholder="Search for..." class="search__field">
+      <button type="submit" class="fa fa-search search__icon"></button>
+    </div>
+  </form>
+</div>
 <section class="hero hero-home2">
     <div class="container wrapper-content">
         <h1>Action</h1>
