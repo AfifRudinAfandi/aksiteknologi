@@ -51,7 +51,7 @@ return array (
   'blog' => 
   array (
     'blog_all' => 'Media dan Blog',
-    'empty_post' => 'Post saat ini masih kosong :(',
+    'empty_post' => 'Post saat ini masih kosong :)',
     'category' => 'Kategori',
     'all_category' => 'Semua Kategori',
     'view' => 'Dilihat',

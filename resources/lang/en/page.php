@@ -51,7 +51,7 @@ return array (
   'blog' => 
   array (
     'blog_all' => 'Media and Blog',
-    'empty_post' => 'Post now is empty :(',
+    'empty_post' => 'Post now is empty :)',
     'category' => 'Category',
     'view' => 'Views',
     'all_category' => 'All Category',
