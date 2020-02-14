@@ -7,6 +7,31 @@
                 <img src="{{ SettingHelper::siteLogo() }}" alt="logo" style="width: 100px;">
             @endif
         </a>
+        <ul class="navbar-nav nav-mobile nav-right flex-row d-md-flex">
+                <li class="nav-item dropdown">
+                    @if(Config::get('app.locale') == 'en' || Session::get('locale') == 'en')
+                        <a class="btn btn-secondary btn-language dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img style="margin-right: 8px; width: 22px;" src="{{ asset('/images/flag-eng.png') }}" alt="EN">
+                            <span>EN</span>
+                        </a>
+                    @else
+                        <a class="btn btn-secondary btn-language dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img style="margin-right: 8px; width: 22px;" src="{{ asset('/images/flag-ind.png') }}" alt="ID">
+                            <span>ID</span>
+                        </a>
+                    @endif
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+                        <a class="dropdown-item itm-language" href="{{ route('set_locale', 'en') }}">
+                            <img style="margin-right: 8px; width: 22px;" src="{{ asset('/images/flag-eng.png') }}" alt="EN">
+                            <span>EN</span>
+                        </a>
+                        <a class="dropdown-item itm-language" href="{{ route('set_locale', 'id') }}">
+                            <img style="margin-right: 8px; width: 22px;" src="{{ asset('/images/flag-ind.png') }}" alt="IN">
+                            <span>ID</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -38,6 +38,9 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .nav-mobile{
+        display: block !important;
+    }
     .card-contact a .wrapper-contact {
         flex-direction: column;
         justify-content: center;
@@ -713,6 +716,9 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 601px) and (max-width: 991px) {
+    .nav-mobile{
+        display: block !important;
+    }
     .hero-home2{
         padding-top: 24%;
         height: auto;

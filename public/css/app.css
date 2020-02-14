@@ -440,3 +440,15 @@ li {
 .link-card-ft{
     color: #001D41;
 }
+
+
+.nav-mobile {
+    position: absolute;
+    top: 26px;
+    right: 70px;
+    display: none;
+}
+.nav-mobile .dropdown-menu {
+    position: absolute;
+    border-radius: 12px 0 12px 12px !important;
+}
