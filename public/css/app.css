@@ -446,7 +446,7 @@ li {
     position: absolute;
     top: 26px;
     right: 70px;
-    display: none;
+    display: none !important;
 }
 .nav-mobile .dropdown-menu {
     position: absolute;
