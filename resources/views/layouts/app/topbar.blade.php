@@ -101,3 +101,11 @@
         </div>
     </div>
 </nav>
+<div class="float">
+  <form class="search" action="{{ route('app.search') }}" method="get">
+    <div class="search__wrapper">
+      <input class="search__field" type="text" name="q" placeholder="{{ __('app.search') }}" aria-label="Search" aria-describedby="button-addon2">
+      <button type="submit" id="button-addon2" class="fa fa-search search__icon"></button>
+    </div>
+  </form>
+</div>
