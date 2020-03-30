@@ -462,8 +462,9 @@ li {
 
 
 .float{
-    position: sticky;
-    top: 90vh;
+    right: 5px;
+    bottom: 118px;
+    position: fixed;
     z-index: 10;
     display: none !important;
   }
