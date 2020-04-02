@@ -6,7 +6,9 @@ main-wrapper-1
 
 @push('styles')
 <style>
-    #job-desc{ height: 120px; }
+    #job-desc {
+        height: 120px;
+    }
 </style>
 @endpush
 
@@ -49,7 +51,7 @@ main-wrapper-1
                                 <select id="category-select" name="category_id" class="form-control">
                                     <option value="">-- Pilih Kategori --</option>
                                     @foreach($category as $_category)
-                                        <option value="{{ $_category->id }}" {{ $career->category_id == $_category->id ? 'selected' : '' }}>{{ $_category->category }}</option>                                   
+                                    <option value="{{ $_category->id }}" {{ $career->category_id == $_category->id ? 'selected' : '' }}>{{ $_category->category }}</option>
                                     @endforeach
                                 </select>
                                 <button id="add-category" class="btn btn-sm btn-primary mt-2"><i class="fa fa-plus mr-2"></i>Tambah Kategori</button>
@@ -67,14 +69,14 @@ main-wrapper-1
                                     <div id="collapseOne" class="collapse basic-wrapper" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <button type="button" class="btn btn-sm btn-primary add-basic mb-2">Tambah Kolom</button>
                                         @if(count($basics) > 0)
-                                            @foreach($basics as $basic)
-                                                <div>
-                                                    <input type="text" name="basic[]" value="{{ $basic->content }}" class="form-control mb-2"/>
-                                                    <button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button>
-                                                </div>
-                                            @endforeach
+                                        @foreach($basics as $basic)
+                                        <div>
+                                            <input type="text" name="basic[]" value="{{ $basic->content }}" class="form-control mb-2" />
+                                            <button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button>
+                                        </div>
+                                        @endforeach
                                         @else
-                                            <input type="text" name="basic[]" class="form-control mb-2">
+                                        <input type="text" name="basic[]" class="form-control mb-2">
                                         @endif
                                     </div>
 
@@ -86,14 +88,14 @@ main-wrapper-1
                                     <div id="collapseTwo" class="collapse specific-wrapper" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                         <button type="button" class="btn btn-sm btn-primary add-specific mb-2">Tambah Kolom</button>
                                         @if(count($specifics) > 0)
-                                            @foreach($specifics as $specific)
-                                                <div>
-                                                    <input type="text" name="specific[]" value="{{ $specific->content }}" class="form-control mb-2"/>
-                                                    <button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button>
-                                                </div>
-                                            @endforeach
+                                        @foreach($specifics as $specific)
+                                        <div>
+                                            <input type="text" name="specific[]" value="{{ $specific->content }}" class="form-control mb-2" />
+                                            <button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button>
+                                        </div>
+                                        @endforeach
                                         @else
-                                            <input type="text" name="specific[]" class="form-control mb-2">
+                                        <input type="text" name="specific[]" class="form-control mb-2">
                                         @endif
                                     </div>
                                 </div>
@@ -123,9 +125,12 @@ main-wrapper-1
 
 {!! $validator->selector('#form') !!}
 
+<script src="{{ asset('/stisla/modules/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('/stisla/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
 
 <script>
+    CKEDITOR.replace('job-desc');
+
     $(function() {
         $.uploadPreview({
             input_field: "#image-upload",
@@ -186,31 +191,35 @@ main-wrapper-1
         }
 
         var max_fields = 10;
-        $(".add-basic").click(function(e){ //on add input button click
+        $(".add-basic").click(function(e) { //on add input button click
             var x = 1;
             e.preventDefault();
-            if(x < max_fields) {
+            if (x < max_fields) {
                 x++;
                 $(".basic-wrapper").append('<div><input type="text" name="basic[]" class="form-control mb-2"/><button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button></div>');
             }
         });
-        
-        $(".basic-wrapper").on("click",".remove_field", function(e) {
-            e.preventDefault(); $(this).parent('div').remove(); x--;
+
+        $(".basic-wrapper").on("click", ".remove_field", function(e) {
+            e.preventDefault();
+            $(this).parent('div').remove();
+            x--;
         });
 
 
-        $(".add-specific").click(function(e){ //on add input button click
+        $(".add-specific").click(function(e) { //on add input button click
             var y = 1;
             e.preventDefault();
-            if(y < max_fields) {
+            if (y < max_fields) {
                 y++;
                 $(".specific-wrapper").append('<div><input type="text" name="specific[]" class="form-control mb-2"/><button class="remove_field btn btn-md float-right mr-2" style="margin-top: -48px;"><i class="text-danger fa fa-times"></i></button></div>');
             }
         });
-        
-        $(".specific-wrapper").on("click",".remove_field", function(e) {
-            e.preventDefault(); $(this).parent('div').remove(); y--;
+
+        $(".specific-wrapper").on("click", ".remove_field", function(e) {
+            e.preventDefault();
+            $(this).parent('div').remove();
+            y--;
         });
 
     });
