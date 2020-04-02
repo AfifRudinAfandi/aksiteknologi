@@ -36,7 +36,6 @@ class CareerController extends Controller
             'category_id' => 'Kategori',
             'basic' => 'Basic Requirements'
         ];
-
     }
 
     /**
@@ -55,42 +54,42 @@ class CareerController extends Controller
         $careers = Career::all();
 
         return DataTables::of($careers)
-                ->addColumn('checkboxes', 'admin.career.checkbox')
-                ->editColumn('title', function($career) {
-                    return '<a href="'.route('admin.career.show', $career->id).'">'.$career->job_title.'</a>';
-                })
-                ->editColumn('category', function($career) {
-                    return isset($career->category_id) ? $career->category->category : '-';
-                })
-                ->editColumn('created_at', function($career) {
-                    return $career->created_at->diffForHumans();
-                })
-                ->addColumn('applicant', function($career) {
-                    return $career->applicant->count();
-                })
-                ->addColumn('action', 'admin.career.actions')
-                ->rawColumns([
-                    'checkboxes' => 'checkboxes',
-                    'title' => 'title',
-                    'action' => 'action',
-                ])->make();
+            ->addColumn('checkboxes', 'admin.career.checkbox')
+            ->editColumn('title', function ($career) {
+                return '<a href="' . route('admin.career.show', $career->id) . '">' . $career->job_title . '</a>';
+            })
+            ->editColumn('category', function ($career) {
+                return isset($career->category_id) ? $career->category->category : '-';
+            })
+            ->editColumn('created_at', function ($career) {
+                return $career->created_at->diffForHumans();
+            })
+            ->addColumn('applicant', function ($career) {
+                return $career->applicant->count();
+            })
+            ->addColumn('action', 'admin.career.actions')
+            ->rawColumns([
+                'checkboxes' => 'checkboxes',
+                'title' => 'title',
+                'action' => 'action',
+            ])->make();
     }
 
     public function datatableApplicant(Request $request)
     {
         $applicant = Career::where('id', '=', $request->career_id)->firstOrFail()->applicant();
         return DataTables::of($applicant)
-            ->editColumn('name', function($a) {
+            ->editColumn('name', function ($a) {
                 return '
-                    <h6>'.$a->name.'</h6>
-                    <span>'.$a->email.'</span><br/>
-                    <span>'.$a->phone.'</span>
+                    <h6>' . $a->name . '</h6>
+                    <span>' . $a->email . '</span><br/>
+                    <span>' . $a->phone . '</span>
                 ';
             })
-            ->editColumn('document_link', function($a) {
-                return '<a href="'.$a->document_link.'" target="_blank">'.$a->document_link.'</a>';
+            ->editColumn('document_link', function ($a) {
+                return '<a href="' . $a->document_link . '" target="_blank">' . $a->document_link . '</a>';
             })
-            ->editColumn('created_at', function($career) {
+            ->editColumn('created_at', function ($career) {
                 return $career->created_at->diffForHumans();
             })
             ->rawColumns([
@@ -111,7 +110,7 @@ class CareerController extends Controller
         $validator = JsValidator::make($this->rule, $this->message, $this->attribute);
 
         return view('admin.career.create')
-                ->withValidator($validator);
+            ->withValidator($validator);
     }
 
     /**
@@ -125,7 +124,7 @@ class CareerController extends Controller
         $basics = $request->basic;
         $specifics = $request->specific;
 
-        if(!in_array(null, $basics, true)) {
+        if (!in_array(null, $basics, true)) {
 
             $uuid = uniqid();
 
@@ -138,10 +137,10 @@ class CareerController extends Controller
 
             $save = $career->save();
 
-            if($save) {
+            if ($save) {
 
-                foreach($basics as $index => $basic){
-                    if($basic != null) {
+                foreach ($basics as $index => $basic) {
+                    if ($basic != null) {
                         $data[$index] = [
                             'uuid' => $uuid,
                             'content' => $basic,
@@ -152,9 +151,9 @@ class CareerController extends Controller
 
                 Requirement::insert($data);
 
-                if(!in_array(null, $specifics, true)) {
-                    foreach($specifics as $index => $specific) {
-                        if($specific != null) {
+                if (!in_array(null, $specifics, true)) {
+                    foreach ($specifics as $index => $specific) {
+                        if ($specific != null) {
                             $dataSpecific[$index] = [
                                 'uuid' => $uuid,
                                 'content' => $specific,
@@ -212,12 +211,12 @@ class CareerController extends Controller
         ])->get();
 
         return view('admin.career.edit')
-                ->withCategory($category)
-                ->withBasics($basics)
-                ->withSpecifics($specifics)
-                ->withCareer($career)
-                ->withValidator($validator);
-        }
+            ->withCategory($category)
+            ->withBasics($basics)
+            ->withSpecifics($specifics)
+            ->withCareer($career)
+            ->withValidator($validator);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -232,7 +231,7 @@ class CareerController extends Controller
         $basics = $request->basic;
         $specifics = $request->specific;
 
-        if(!in_array(null, $basics, true)) {
+        if (!in_array(null, $basics, true)) {
             $career = Career::findOrFail($id);
 
             $career->category_id = $request->category_id;
@@ -241,12 +240,12 @@ class CareerController extends Controller
 
             $save = $career->save();
 
-            if($save) {
+            if ($save) {
 
                 Requirement::where('uuid', '=', $request->uuid)->delete();
 
-                foreach($basics as $index => $basic){
-                    if($basic != null) {
+                foreach ($basics as $index => $basic) {
+                    if ($basic != null) {
                         $data[$index] = [
                             'uuid' => $uuid,
                             'content' => $basic,
@@ -257,9 +256,9 @@ class CareerController extends Controller
 
                 Requirement::insert($data);
 
-                if(!in_array(null, $specifics, true)) {
-                    foreach($specifics as $index => $specific) {
-                        if($specific != null) {
+                if (!in_array(null, $specifics, true)) {
+                    foreach ($specifics as $index => $specific) {
+                        if ($specific != null) {
                             $dataSpecific[$index] = [
                                 'uuid' => $uuid,
                                 'content' => $specific,
@@ -267,7 +266,7 @@ class CareerController extends Controller
                             ];
                         }
                     }
-                    if(isset($dataSpecific)){
+                    if (isset($dataSpecific)) {
                         Requirement::insert($dataSpecific);
                     }
                 }
@@ -290,11 +289,11 @@ class CareerController extends Controller
      */
     public function destroy(Request $request)
     {
-        if(isset($request->id)){
+        if (isset($request->id)) {
             $career = Career::findOrFail($request->id);
             Requirement::where('uuid', '=', $career->requirement_uuid)->delete();
             $delete = $career->delete();
-            if($delete) {
+            if ($delete) {
                 $output = [
                     'status' => 'success',
                     'message' => 'Berhasil menghapus data.'
@@ -320,10 +319,10 @@ class CareerController extends Controller
     {
         $ids = $request->id;
         $uuids = $request->uuid;
-        if(isset($ids)){
+        if (isset($ids)) {
             $career = Career::whereIn('id', $ids);
             $delete = $career->delete();
-            if($delete) {
+            if ($delete) {
                 Requirement::whereIn('uuid', $uuids)->delete();
                 $output = [
                     'status' => 'success',
@@ -358,7 +357,7 @@ class CareerController extends Controller
         $category->category = $request->category;
         $add = $category->save();
 
-        if($add) {
+        if ($add) {
             $output = [
                 'status' => 'success',
                 'message' => 'Berhasil menambah kategori.'
@@ -377,7 +376,7 @@ class CareerController extends Controller
     {
         $delete = Category::findOrFail($request->id)->delete();
 
-        if($delete) {
+        if ($delete) {
             $output = [
                 'status' => 'success',
                 'message' => 'Berhasil menghapus kategori.'
@@ -403,20 +402,24 @@ class CareerController extends Controller
         $applicant = Applicant::orderBy('created_at', 'asc')->get();
         return DataTables::of($applicant)
             ->addColumn('checkboxes', 'admin.partial.checkbox')
-            ->editColumn('name', function($a) {
+            ->editColumn('name', function ($a) {
                 return '
-                    <h6>'.$a->name.'</h6>
-                    <span>'.$a->email.'</span><br/>
-                    <span>'.$a->phone.'</span>
+                    <h6>' . $a->name . '</h6>
+                    <span>' . $a->email . '</span><br/>
+                    <span>' . $a->phone . '</span>
                 ';
             })
-            ->editColumn('document_link', function($a) {
-                return '<a href="'.$a->document_link.'" target="_blank">'.$a->document_link.'</a>';
+            ->editColumn('document_link', function ($a) {
+                return '<a href="' . $a->document_link . '" target="_blank">' . $a->document_link . '</a>';
             })
-            ->addColumn('job', function($a) {
-                return '<a href="'.route('admin.career.show', $a->job->id).'" target="_blank">'.$a->job->job_title.'</a>';
+            ->addColumn('job', function ($a) {
+                if (isset($a->job)) {
+                    return '<a href="' . route('admin.career.show', $a->job->id) . '" target="_blank">' . $a->job->job_title . '</a>';
+                } else {
+                    return '-';
+                }
             })
-            ->editColumn('created_at', function($career) {
+            ->editColumn('created_at', function ($career) {
                 return $career->created_at->diffForHumans();
             })
             ->rawColumns([
@@ -430,10 +433,10 @@ class CareerController extends Controller
     public function applicantDestroy(Request $request)
     {
         $ids = $request->id;
-        if(isset($ids)){
+        if (isset($ids)) {
             $applicant = Applicant::whereIn('id', $ids);
             $delete = $applicant->delete();
-            if($delete) {
+            if ($delete) {
                 $output = [
                     'status' => 'success',
                     'message' => 'Berhasil menghapus data yang dipilih.'
@@ -453,5 +456,4 @@ class CareerController extends Controller
 
         return $output;
     }
-
 }
