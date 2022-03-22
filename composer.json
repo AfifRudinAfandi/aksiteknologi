@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.2",
         "ext-gd": "*",
-        "barryvdh/laravel-translation-manager": "^0.5.7",
+        "barryvdh/laravel-translation-manager": "^0.6.2",
         "consoletvs/charts": "6.*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
